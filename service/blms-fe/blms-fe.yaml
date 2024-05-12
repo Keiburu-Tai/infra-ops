@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blms-fe
+  labels:
+    app: blms-fe
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blms-fe
+  template:
+    metadata:
+      labels:
+        app: blms-fe
+    spec:
+      containers:
+        - name: blms-fe
+          image: minjuncho/blms-fe:latest
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blms-fe-service
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: blms-fe
