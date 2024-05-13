@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: blms-fe
-          image: minjuncho/blms-fe:blms-fe51
+          image: minjuncho/blms-fe:latest
           ports:
             - containerPort: 8000
 ---
@@ -27,24 +27,24 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 8000
+    - port: 80
       targetPort: 8000
   selector:
     app: blms-fe
 ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: blms-fe-ingress
-#   namespace: blms  # Ingress를 blms 네임스페이스에 배치
-# spec:
-#   rules:
-#   - http:
-#       paths:
-#       - path: /blms-fe
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: blms-fe-service
-#             port:
-#               number: 80
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: blms-fe-ingress
+  namespace: blms  # Ingress를 blms 네임스페이스에 배치
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /blms-fe
+        pathType: Prefix
+        backend:
+          service:
+            name: blms-fe-service
+            port:
+              number: 80
