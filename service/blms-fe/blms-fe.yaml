@@ -41,7 +41,7 @@ spec:
   ingressClassName: traefik-blms
   rules:
   - host: blms-fe.com
-    http:
+  - http:
       paths:
       - path: /blms-fe
         pathType: Prefix
