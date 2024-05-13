@@ -47,6 +47,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: blms-fe-service
+            name: hostname-service
             port:
-              number: 80
+              number: 81
