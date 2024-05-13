@@ -27,7 +27,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 80
+    - port: 8501
       targetPort: 8501
   selector:
     app: blms-fe
@@ -47,4 +47,4 @@ spec:
           service:
             name: blms-fe-service
             port:
-              number: 80
+              number: 8501
