@@ -18,7 +18,7 @@ spec:
         - name: blms-fe
           image: minjuncho/blms-fe:latest
           ports:
-            - containerPort: 8501
+            - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -27,8 +27,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 8501
-      targetPort: 8501
+    - port: 80
+      targetPort: 80
   selector:
     app: blms-fe
 ---
