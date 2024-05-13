@@ -32,4 +32,21 @@ spec:
   selector:
     app: blms-fe
 ---
-
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: blms-fe-ingress
+  namespace: blms  # Ingress를 blms 네임스페이스에 배치
+spec:
+  ingressClassName: traefik-blms
+  rules:
+  - host: blms-fe.com
+    http:
+      paths:
+      - path: /blms-fe
+        pathType: Prefix
+        backend:
+          service:
+            name: blms-fe-service
+            port:
+              number: 80
