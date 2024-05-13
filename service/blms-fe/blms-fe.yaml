@@ -36,17 +36,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: blms-fe-ingress
-  # namespace: blms  # Ingress를 blms 네임스페이스에 배치
-  annotations:
-    traefik.ingress.kubernetes.io/rewrite-target: /$2 # path의 (.*) 에서 획득한 경로로 전달합니다.
+  namespace: blms  # Ingress를 blms 네임스페이스에 배치
 spec:
   rules:
   - http:
       paths:
-      - path: /blms-fe(/|$)(.*)
+      - path: /blms-fe
         pathType: Prefix
         backend:
           service:
-            name: hostname-service
+            name: blms-fe-service
             port:
-              number: 81
+              number: 80
