@@ -31,3 +31,18 @@ spec:
       targetPort: 8501
   selector:
     app: blms-fe
+---
+kind: Ingress
+metadata:
+  name: blms-fe-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /blms-fe
+        pathType: Prefix
+        backend:
+          service:
+            name: blms-fe-service
+            port:
+              name: 80
