@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: blms-fe
-          image: minjuncho/blms-fe57
+          image: minjuncho/blms-fe:blms-fe58
           ports:
             - containerPort: 8000
 ---
