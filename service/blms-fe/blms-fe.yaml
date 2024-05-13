@@ -38,9 +38,7 @@ metadata:
   name: blms-fe-ingress
   namespace: blms  # Ingress를 blms 네임스페이스에 배치
 spec:
-  ingressClassName: traefik-blms
   rules:
-  - host: blms-fe.com
   - http:
       paths:
       - path: /blms-fe
