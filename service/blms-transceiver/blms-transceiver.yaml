@@ -5,7 +5,7 @@ metadata:
   labels:
     app: blms-transceiver
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: blms-transceiver
@@ -16,7 +16,6 @@ spec:
     spec:
       containers:
         - name: blms-transceiver
-          imagePullPolicy: Always
           image: minjuncho/blms-transceiver:2
           ports:
             - containerPort: 8000
