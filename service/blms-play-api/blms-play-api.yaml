@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: blms-play-api
-          image: minjuncho/blms-play-api:5
+          image: minjuncho/blms-play-api:6
           ports:
             - containerPort: 8000
 ---
