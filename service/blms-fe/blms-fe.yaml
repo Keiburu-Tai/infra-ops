@@ -46,7 +46,7 @@ spec:
     - match: PathPrefix(`/test`)
       kind: Rule
       services:
-        - name: blms-fe-service
+        - name: my-webserver
           port: 80
       middlewares:
         - name: default-headers
