@@ -32,19 +32,28 @@ spec:
   selector:
     app: blms-fe
 ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: blms-fe-ingress
-#   namespace: blms  # Ingress를 blms 네임스페이스에 배치
-# spec:
-#   rules:
-#   - http:
-#       paths:
-#       - path: /blms-fe
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: blms-fe-service
-#             port:
-#               number: 80
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: blms-fe
+  namespace: blms
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`www.test.local.example.com`)
+      kind: Rule
+      services:
+        - name: blms-fe-service
+          port: 80
+    - match: Host(`test.local.example.com`)
+      kind: Rule
+      services:
+        - name: blms-fe-service
+          port: 80
+      middlewares:
+        - name: default-headers
+  # tls:
+  #   secretName: local-example-com-tls
