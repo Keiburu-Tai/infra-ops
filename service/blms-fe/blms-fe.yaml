@@ -32,24 +32,24 @@ spec:
   selector:
     app: blms-fe
 ---
-# apiVersion: traefik.containo.us/v1alpha1
-# kind: IngressRoute
-# metadata:
-#   name: blms-fe
-#   namespace: blms
-#   annotations:
-#     kubernetes.io/ingress.class: traefik-external
-# spec:
-#   entryPoints:
-#     - websecure
-#   routes:
-#     - match: PathPrefix(`/`)
-#       kind: Rule
-#       services:
-#         - name: blms-fe-service
-#           port: 80
-#       middlewares:
-#         - name: default-headers
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: blms-fe
+  namespace: blms
+  annotations:
+    kubernetes.io/ingress.class: traefik-external
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: PathPrefix(`/test`)
+      kind: Rule
+      services:
+        - name: blms-fe-service
+          port: 80
+      middlewares:
+        - name: default-headers
   # tls:
   #   secretName: local-example-com-tls
 ---
