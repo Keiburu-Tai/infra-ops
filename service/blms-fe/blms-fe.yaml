@@ -43,12 +43,12 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`www.test.local.example.com`) && PathPrefix(`/`)
+    - match: Host(`www.test.local.example.com`)
       kind: Rule
       services:
         - name: blms-fe-service
           port: 80
-    - match: Host(`test.local.example.com`) && PathPrefix(`/`)
+    - match: Host(`test.local.example.com`)
       kind: Rule
       services:
         - name: blms-fe-service
