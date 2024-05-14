@@ -17,7 +17,7 @@ spec:
       containers:
         - name: blms-transceiver
           imagePullPolicy: Always
-          image: minjuncho/blms-transceiver:1
+          image: minjuncho/blms-transceiver:2
           ports:
             - containerPort: 8000
 ---
