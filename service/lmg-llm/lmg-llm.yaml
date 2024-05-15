@@ -17,7 +17,8 @@ spec:
       containers:
         - name: lmg-llm
           image: ollama/ollama
-          command: ['ollama', 'run', 'llama3']
+          command: ['ollama']
+          args: ['run', 'llama3']
           ports:
             - containerPort: 11434
 ---
