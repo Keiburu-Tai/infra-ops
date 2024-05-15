@@ -19,11 +19,10 @@ spec:
           image: minjuncho/lwg-llm:2
           resources:
             requests:
-              memory: "2.5Gi"
-              cpu: "1000m"
+              memory: "2Gi"
             limits:
-              memory: "10Gi"
-              cpu: "3000m"
+              memory: "5Gi"
+              cpu: "10000m"
           ports:
             - containerPort: 8000
 ---
