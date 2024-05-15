@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: lmg-llm
-          image: minjuncho/lmg-llm
+          image: minjuncho/my_ollama
           ports:
             - containerPort: 11434
 ---
