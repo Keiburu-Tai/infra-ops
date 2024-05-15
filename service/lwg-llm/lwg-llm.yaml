@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: lwg-llm
-          image: lwg-llm:latest
+          image: minjuncho/lwg-llm:1
           ports:
             - containerPort: 8000
 ---
