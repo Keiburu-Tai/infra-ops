@@ -14,11 +14,14 @@ spec:
       labels:
         app: lmg-llm
     spec:
+      initContainers:
+        - name: wait-for-init
+          image: busybox
+          command: ['sh', '-c', 'echo "Waiting for 60 seconds..."; sleep 60']
       containers:
         - name: lmg-llm
           image: ollama/ollama
-          command: ['ollama']
-          args: ['run', 'llama3']
+          command: ['sh', '-c', 'ollama run llama3 & sleep 5; echo "Running post-start command"; wait']
           ports:
             - containerPort: 11434
 ---
