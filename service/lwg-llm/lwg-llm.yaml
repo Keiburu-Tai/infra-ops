@@ -14,6 +14,15 @@ spec:
       labels:
         app: lwg-llm
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - node2
       containers:
         - name: lwg-llm
           image: minjuncho/lwg-llm:2
@@ -22,7 +31,7 @@ spec:
               memory: "2Gi"
             limits:
               memory: "5Gi"
-              cpu: "10000m"
+              cpu: "4000m"
           ports:
             - containerPort: 8000
 ---
