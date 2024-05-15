@@ -1,46 +1,41 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lmg-llm
+  name: lwg-llm
   labels:
-    app: lmg-llm
+    app: lwg-llm
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: lmg-llm
+      app: lwg-llm
   template:
     metadata:
       labels:
-        app: lmg-llm
+        app: lwg-llm
     spec:
-      initContainers:
-        - name: wait-for-init
-          image: busybox
-          command: ['sh', '-c', 'echo "Waiting for 60 seconds..."; sleep 60']
       containers:
-        - name: lmg-llm
+        - name: lwg-llm
           image: ollama/ollama
-          command: ['sh', '-c', 'ollama run llama3 & sleep 5; echo "Running post-start command"; wait']
           ports:
             - containerPort: 11434
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: lmg-llm-service
+  name: lwg-llm-service
 spec:
   type: LoadBalancer
   ports:
     - port: 11434
       targetPort: 11434
   selector:
-    app: lmg-llm
+    app: lwg-llm
 ---
 # apiVersion: traefik.containo.us/v1alpha1
 # kind: IngressRoute
 # metadata:
-#   name: lmg-llm
+#   name: lwg-llm
 #   namespace: blms
 #   annotations:
 #     kubernetes.io/ingress.class: traefik-external
@@ -51,12 +46,12 @@ spec:
 #     - match: Host(`www.blms.transceiver.api.local.example.com`)
 #       kind: Rule
 #       services:
-#         - name: lmg-llm-service
+#         - name: lwg-llm-service
 #           port: 80
 #     - match: Host(`blms.transceiver.api.local.example.com`)
 #       kind: Rule
 #       services:
-#         - name: lmg-llm-service
+#         - name: lwg-llm-service
 #           port: 80
 #       middlewares:
 #         - name: blms-headers
