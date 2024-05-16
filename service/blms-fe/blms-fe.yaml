@@ -18,43 +18,43 @@ spec:
         - name: blms-fe
           image: minjuncho/blms-fe:64
           ports:
-            - containerPort: 8000
+            - containerPort: 8501
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: blms-fe-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 80
-      targetPort: 8000
+      targetPort: 8501
   selector:
     app: blms-fe
 ---
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: blms-fe
-  namespace: blms
-  annotations:
-    kubernetes.io/ingress.class: traefik-external
-spec:
-  entryPoints:
-    - websecure
-  routes:
-    - match: Host(`www.test.local.example.com`)
-      kind: Rule
-      services:
-        - name: blms-fe-service
-          port: 80
-    - match: Host(`test.local.example.com`)
-      kind: Rule
-      services:
-        - name: blms-fe-service
-          port: 80
-      middlewares:
-        - name: blms-headers
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: blms-fe
+#   namespace: blms
+#   annotations:
+#     kubernetes.io/ingress.class: traefik-external
+# spec:
+#   entryPoints:
+#     - websecure
+#   routes:
+#     - match: Host(`www.test.local.example.com`)
+#       kind: Rule
+#       services:
+#         - name: blms-fe-service
+#           port: 80
+#     - match: Host(`test.local.example.com`)
+#       kind: Rule
+#       services:
+#         - name: blms-fe-service
+#           port: 80
+#       middlewares:
+#         - name: blms-headers
   # tls:
   #   secretName: local-example-com-tls
 ---
