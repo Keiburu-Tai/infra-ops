@@ -16,16 +16,16 @@ spec:
     spec:
       containers:
         - name: blms-fe
-          image: minjuncho/blms-fe:70
+          image: minjuncho/blms-fe:69
           securityContext:
-              privileged: true
-            volumeMounts:
-              - name: dev-snd
-                mountPath: /dev/snd
-              - name: dev-alsa
-                mountPath: /usr/share/alsa
-              - name: dev-asound
-                mountPath: /etc/asound.conf
+            privileged: true
+          volumeMounts:
+            - name: dev-snd
+              mountPath: /dev/snd
+            - name: dev-alsa
+              mountPath: /usr/share/alsa
+            - name: dev-asound
+              mountPath: /etc/asound.conf
           ports:
             - containerPort: 8501
       volumes:
