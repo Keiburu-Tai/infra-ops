@@ -17,8 +17,30 @@ spec:
       containers:
         - name: blms-fe
           image: minjuncho/blms-fe:69
+          securityContext:
+              privileged: true
+            volumeMounts:
+              - name: dev-snd
+                mountPath: /dev/snd
+              - name: dev-alsa
+                mountPath: /usr/share/alsa
+              - name: dev-asound
+                mountPath: /etc/asound.conf
           ports:
             - containerPort: 8501
+      volumes:
+        - name: dev-snd
+          hostPath:
+            path: /dev/snd
+            type: Directory
+        - name: dev-alsa
+          hostPath:
+            path: /usr/share/alsa
+            type: Directory
+        - name: dev-asound
+          hostPath:
+            path: /etc/asound.conf
+            type: FileOrCreate
 ---
 apiVersion: v1
 kind: Service
