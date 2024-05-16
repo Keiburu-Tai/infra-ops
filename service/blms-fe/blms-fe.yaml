@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: blms-fe
-          image: minjuncho/blms-fe:69
+          image: minjuncho/blms-fe:70
           securityContext:
               privileged: true
             volumeMounts:
