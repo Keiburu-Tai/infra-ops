@@ -36,7 +36,7 @@ spec:
         - name: dev-alsa
           hostPath:
             path: /usr/share/alsa
-            type: Directory
+            type: DirectoryOrCreate
         - name: dev-asound
           hostPath:
             path: /etc/asound.conf
