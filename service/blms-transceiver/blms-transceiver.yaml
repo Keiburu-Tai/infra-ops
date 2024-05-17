@@ -19,7 +19,7 @@ spec:
           image: minjuncho/blms-transceiver:latest
           envFrom:
             - secretRef:
-                name: test-secret-command
+                name: blms-gpt-api-key-yaml
           ports:
             - containerPort: 8000
 ---
