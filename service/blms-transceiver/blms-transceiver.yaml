@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: blms-transceiver
-          image: minjuncho/blms-transceiver:3
+          image: minjuncho/blms-transceiver:4
           ports:
             - containerPort: 8000
 ---
