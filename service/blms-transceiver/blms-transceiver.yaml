@@ -16,7 +16,10 @@ spec:
     spec:
       containers:
         - name: blms-transceiver
-          image: minjuncho/blms-transceiver:4
+          image: minjuncho/blms-transceiver:latest
+          envFrom:
+            - secretRef:
+                name: test-secret-command
           ports:
             - containerPort: 8000
 ---
