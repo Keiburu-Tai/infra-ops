@@ -35,28 +35,28 @@ spec:
   selector:
     app: blms-transceiver
 ---
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: blms-transceiver
-  namespace: blms
-  annotations:
-    kubernetes.io/ingress.class: traefik-external
-spec:
-  entryPoints:
-    - websecure
-  routes:
-    - match: Host(`www.blms.transceiver.api.local.example.com`)
-      kind: Rule
-      services:
-        - name: blms-transceiver-service
-          port: 80
-    - match: Host(`blms.transceiver.api.local.example.com`)
-      kind: Rule
-      services:
-        - name: blms-transceiver-service
-          port: 80
-      middlewares:
-        - name: blms-headers
+# apiVersion: traefik.containo.us/v1alpha1
+# kind: IngressRoute
+# metadata:
+#   name: blms-transceiver
+#   namespace: blms
+#   annotations:
+#     kubernetes.io/ingress.class: traefik-external
+# spec:
+#   entryPoints:
+#     - websecure
+#   routes:
+#     - match: Host(`www.blms.transceiver.api.local.example.com`)
+#       kind: Rule
+#       services:
+#         - name: blms-transceiver-service
+#           port: 80
+#     - match: Host(`blms.transceiver.api.local.example.com`)
+#       kind: Rule
+#       services:
+#         - name: blms-transceiver-service
+#           port: 80
+#       middlewares:
+#         - name: blms-headers
 # tls:
 #   secretName: local-example-com-tls
