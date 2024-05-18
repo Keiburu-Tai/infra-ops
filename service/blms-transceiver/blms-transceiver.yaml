@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: blms-transceiver
-          image: minjuncho/blms-transceiver:6
+          image: minjuncho/blms-transceiver:7
           envFrom:
             - secretRef:
                 name: blms-gpt-api-key-yaml
