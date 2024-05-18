@@ -17,12 +17,6 @@ spec:
       containers:
         - name: blms-transceiver
           image: minjuncho/blms-transceiver:9
-          resources:
-            requests:
-              memory: "2Gi"
-            limits:
-              memory: "5Gi"
-              cpu: "3000m"
           envFrom:
             - secretRef:
                 name: blms-gpt-api-key-yaml
