@@ -18,8 +18,8 @@ spec:
         - name: blms-transceiver
           image: minjuncho/blms-transceiver:9
           resources:
-          limits:
-            nvidia.com/gpu: "1"
+            limits:
+              nvidia.com/gpu: "1"
           envFrom:
             - secretRef:
                 name: blms-gpt-api-key-yaml
