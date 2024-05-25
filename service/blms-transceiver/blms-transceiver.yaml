@@ -5,7 +5,7 @@ metadata:
   labels:
     app: blms-transceiver
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: blms-transceiver
