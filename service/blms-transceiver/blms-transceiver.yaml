@@ -21,7 +21,7 @@ spec:
           operator: Exists
       containers:
         - name: blms-transceiver
-          image: minjuncho/blms-transceiver:13
+          image: minjuncho/blms-transceiver:14
           envFrom:
             - secretRef:
                 name: blms-gpt-api-key-yaml
