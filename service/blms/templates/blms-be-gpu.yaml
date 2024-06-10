@@ -28,7 +28,6 @@ spec:
           {{- if .envFrom }}
           envFrom:
             {{- toYaml .envFrom | nindent 12 }}
-            {{- end }}
           {{- end }}
           ports:
             - containerPort: {{ .port }}
