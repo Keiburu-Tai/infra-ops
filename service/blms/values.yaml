@@ -1,0 +1,26 @@
+imageRepository: minjuncho
+
+blms-fe:
+  name: blms-fe-helm
+  image: blms-fe:latest
+  port: 8501
+  replicas: 2
+  type: ClusterIP
+
+blms-be:
+  name: blms-transceiver-helm
+  image: blms-transceiver:latest
+  port: 8000
+  replicas: 1
+  type: LoadBalancer
+  envFrom:
+    - secretRef:
+        name: blms-gpt-api-key-yaml
+
+blms-be-gpu:
+  name: blms-transceiver-helm-gpu
+  image: blms-transceiver:latest
+  port: 8000
+  replicas: 1
+  type: LoadBalancer
+  gpu_count: 1
