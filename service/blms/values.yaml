@@ -2,7 +2,7 @@ imageRepository: minjuncho
 
 blms-fe:
   name: blms-fe-helm
-  image: blms-fe:latest
+  image: blms-fe:4
   port: 8501
   replicas: 2
   type: ClusterIP
