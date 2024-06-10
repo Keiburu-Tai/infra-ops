@@ -24,3 +24,6 @@ blms-be-gpu:
   replicas: 1
   type: LoadBalancer
   gpu_count: 1
+  envFrom:
+    - secretRef:
+        name: blms-gpt-api-key-yaml
