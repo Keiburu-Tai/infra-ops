@@ -9,7 +9,7 @@ blms-fe:
 
 blms-be-gpu:
   name: blms-transceiver-helm-gpu
-  image: blms-transceiver:17
+  image: blms-transceiver:18
   port: 8000
   replicas: 1
   type: LoadBalancer
