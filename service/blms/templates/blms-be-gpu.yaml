@@ -27,8 +27,7 @@ spec:
           image: {{ $.Values.imageRepository }}/{{ .image }}
           {{- if .envFrom }}
           envFrom:
-            {{- range .envFrom }}
-            - {{ . }}
+            {{- toYaml .envFrom | nindent 12 }}
             {{- end }}
           {{- end }}
           ports:
