@@ -30,8 +30,8 @@ metadata:
 spec:
   type: {{ .type }}
   ports:
-    port: 80
-    targetPort: {{ .port }}
+    - port: 80
+      targetPort: {{ .port }}
   selector:
     app: {{ .name }}
 {{- end }}
