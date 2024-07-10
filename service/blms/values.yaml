@@ -13,7 +13,7 @@ blms-be-gpu:
   port: 8000
   replicas: 1
   type: LoadBalancer
-  gpu_count: 1
+  # gpu_count: 1
   envFrom:
     - secretRef:
         name: blms-gpt-api-key-yaml
