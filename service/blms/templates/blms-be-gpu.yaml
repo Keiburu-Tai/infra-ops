@@ -31,9 +31,9 @@ spec:
           {{- end }}
           ports:
             - containerPort: {{ .port }}
-          resources:
-            limits:
-              nvidia.com/gpu: {{ .gpu_count }}
+          # resources:
+          #   limits:
+          #     nvidia.com/gpu: {{ .gpu_count }}
 ---
 apiVersion: v1
 kind: Service
