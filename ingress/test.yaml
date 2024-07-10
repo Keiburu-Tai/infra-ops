@@ -9,7 +9,7 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - "naver.minst.me"
+    - "*.minst.me"
     secretName: minst-tls
   rules:
   - host: "naver.minst.me"
