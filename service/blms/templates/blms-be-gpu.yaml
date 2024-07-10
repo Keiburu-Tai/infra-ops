@@ -17,11 +17,11 @@ spec:
       labels:
         app: {{ .name }}
     spec:
-      nodeName: node4
-      tolerations:
-        - effect: NoSchedule
-          key: nvidia.com/gpu
-          operator: Exists
+      # nodeName: node4
+      # tolerations:
+      #   - effect: NoSchedule
+      #     key: nvidia.com/gpu
+      #     operator: Exists
       containers:
         - name: {{ .name }}
           image: {{ $.Values.imageRepository }}/{{ .image }}
