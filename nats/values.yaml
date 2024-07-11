@@ -58,8 +58,8 @@ config:
     routeURLs:
       # if both user and password are set, they will be added to route URLs
       # and the cluster authorization block
-      user:
-      password:
+      user: nats-user
+      password: nats-pw
       # set to true to use FQDN in route URLs
       useFQDN: false
       k8sClusterDomain: cluster.local
