@@ -48,6 +48,10 @@ tlsCA:
 # NATS config
 ############################################################
 config:
+  config:
+    merge:
+      max_payload: << 3MB >>
+
   cluster:
     enabled: false
     port: 6222
@@ -127,8 +131,7 @@ config:
       key: tls.key
       # merge or patch the tls config
       # https://docs.nats.io/running-a-nats-service/configuration/securing_nats/tls
-      merge:
-        max_payload: 3MB
+      merge: {}
       patch: []
 
   leafnodes:
