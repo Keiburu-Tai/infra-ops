@@ -128,7 +128,7 @@ config:
       # merge or patch the tls config
       # https://docs.nats.io/running-a-nats-service/configuration/securing_nats/tls
       merge:
-        max_payload: << 3MB >>
+        max_payload: 3MB
       patch: []
 
   leafnodes:
