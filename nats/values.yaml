@@ -84,11 +84,6 @@ config:
   jetstream:
     enabled: true
 
-    streams:
-      - name: FALCON
-        subject: ["FALCON.*"]
-        storage: memory
-        max_bytes: 10485760
     fileStore:
       enabled: false
       dir: /data
