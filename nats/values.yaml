@@ -92,7 +92,7 @@ config:
       # stateful set -> volume claim templates -> jetstream pvc
       ############################################################
       pvc:
-        enabled: true
+        enabled: false
         size: 10Gi
         storageClassName:
 
